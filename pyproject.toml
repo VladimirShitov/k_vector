@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "k_vector"
+version = "0.1.0"
+description = "Project for making 3D-models from pictures"
+authors = ["Vladimir Shitov <vladimirshitov98@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Django = "^3.1.4"
+psycopg2 = "^2.8.6"
+django-tinymce = "^3.2.0"
+Pillow = "^8.0.1"
+loguru = "^0.5.3"
+django-floppyforms = "^1.9.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

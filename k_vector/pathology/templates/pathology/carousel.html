@@ -1,0 +1,10 @@
+<div class="col-lg-6 col-xs-12 my-carousel" id="my-carousel">
+    {% for image in images %}
+        <img
+            src="{{ image.image.url }}"
+            alt="{{ image.order }}"
+            data-tooltip="{{ image.order }}"
+            id="carousel_image_{{ image.order }}"
+            class="thumbnail my-carousel-img inactive wrong-rotation">
+    {% endfor %}
+</div>

@@ -1,0 +1,31 @@
+{% extends "pathology/base.html" %}
+
+{% block title %}Новый препарат{% endblock %}
+
+{% block extra_head_content %}
+    {{ form.media }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <form action="{% url "sample_form" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="row field_wrapper">
+                        <div class="col-12">
+                            {% if field.errors %}
+                                <div class="errors_wrapper alert alert-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+
+                            {{ field.label_tag }} {{ field }}
+                        </div>
+                    </div>
+                {% endfor %}
+            <input type="submit" value="Сохранить" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+{% endblock %}

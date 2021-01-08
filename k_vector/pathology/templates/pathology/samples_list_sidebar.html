@@ -1,0 +1,18 @@
+<div class="samples_list_sidebar">
+    <a href="#" class="sidebar-toggle">Список препаратов</a>
+</div>
+
+<aside class="sidebar">
+    <img src="../pictures/leftArrow.svg" class="sidebar-close-btn sidebar-close" alt="X">
+    <ul class="sidebar-topics" id="sidebar-topics">
+        {% for category, samples in categories_content.items %}
+            <li class="sidebar-topics-item">{{ category }}
+                <ul class="sidebar-topics-item-list" hidden>
+                    {% for sample in samples %}
+                        <li class="sidebar-topics-item-list-elem sidebar-close"><a href="{% url 'sample_view' sample.id %}" class="sidebar-topics-item-list-link">{{ sample.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</aside>
