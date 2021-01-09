@@ -2,7 +2,6 @@ To run the application:
 1. Set the environment variables:
    * SECRET_KEY
    * DB_NAME 
-   * vladimir
    * DB_PASSWORD
    * DB_HOST
    * DB_PORT
