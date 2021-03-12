@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import connection, models
 from tinymce.models import HTMLField
 
 
@@ -7,7 +7,12 @@ class SampleCategory(models.Model):
 
     @classmethod
     def get_all_categories(cls):
-        return [category.name for category in cls.objects.all()]
+        # This will prevent error when table "samplecategory" does not exist yet
+        if cls.__name__.lower() in connection.introspection.table_names():
+            categories_list = [category.name for category in cls.objects.all()]
+        else:
+            categories_list = []
+        return categories_list
 
 
 class Sample(models.Model):
