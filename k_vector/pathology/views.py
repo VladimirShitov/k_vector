@@ -114,3 +114,7 @@ def sample_delete_view(request, sample_id: int, template="pathology/success_page
 def samples_list(request, template="pathology/samples_list.html"):
     samples_dict = get_categories_content()
     return render(request, template, {"samples_dict": samples_dict})
+
+
+def team(request, template="pathology/team.html"):
+    return render(request, template)

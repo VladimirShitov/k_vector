@@ -19,7 +19,7 @@
                 <a href="{% url 'samples_list' %}" class="nav-link">Препараты</a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link" href="#">Команда</a>
+                 <a href="{% url 'team' %}" class="nav-link">Команда</a>
              </li>
              {% if user.is_authenticated %}
                  <li class="nav-item">
