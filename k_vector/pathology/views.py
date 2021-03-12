@@ -4,7 +4,7 @@ from loguru import logger
 
 from .forms import SampleForm, SampleEditForm
 from .models import Sample, SamplePhoto, SampleCategory
-from .utils import save_sample
+from .utils import save_sample, get_categories_content
 
 
 def index(request):
@@ -109,3 +109,8 @@ def sample_delete_view(request, sample_id: int, template="pathology/success_page
         template,
         {"message": "Препарат успешно удалён"}
     )
+
+
+def samples_list(request, template="pathology/samples_list.html"):
+    samples_dict = get_categories_content()
+    return render(request, template, {"samples_dict": samples_dict})
