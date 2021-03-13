@@ -25,10 +25,6 @@
             {% include 'pathology/header.html' %}
         </div>
 
-        {% load pathology_extras %}
-        {% get_samples_list as categories_content %}
-        {% include 'pathology/samples_list_sidebar.html' %}
-
         {% block out_of_container %}
         {% endblock %}
 
