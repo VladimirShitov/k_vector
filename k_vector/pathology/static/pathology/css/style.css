@@ -180,3 +180,28 @@ a.sidebar-toggle {
 a.sidebar-toggle:hover {
     text-decoration: none;
 }
+
+.team_member {
+    width: 60%;
+    clip-path: circle(at center);
+    margin: 0 auto;
+    display: block;
+}
+
+.team_member_card {
+    padding: 15px;
+}
+
+.team_member_card p {
+    text-align: center;
+}
+
+.team_member_card h5 {
+    text-align: center;
+}
+
+.team_member_fixed {
+    width: 200px;
+    clip-path: circle(at center);
+    display: block;
+}
