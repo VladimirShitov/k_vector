@@ -1,0 +1,23 @@
+{% extends "pathology/base.html" %}
+
+{% block title %}Список препаратов{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <h1>Список препаратов</h1>
+        </div>
+    </div>
+    {% for category, samples in samples_dict.items %}
+    <div class="row">
+        <h3>{{ category }}</h3>
+        <div class="col-12">
+            <ul>
+                {% for sample in samples %}
+                    <li><a href="{% url 'sample_view' sample.id %}" class="sidebar-topics-item-list-link">{{ sample.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

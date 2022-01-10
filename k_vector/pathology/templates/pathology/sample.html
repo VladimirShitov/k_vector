@@ -1,0 +1,41 @@
+{% extends "pathology/base.html" %}
+
+{% block title %}{{ sample.title }}{% endblock %}
+
+{% load static %}
+
+{% block scripts %}
+    <script defer src="{% static 'pathology/js/carousel.js' %}"></script>
+    <script defer src="{% static 'pathology/js/zoom.js' %}"></script>
+{% endblock %}
+
+{% block out_of_container %}
+    {% for image in images %}
+        <div class="zoom_container hidden" id="tip-{{ image.order }}">
+            <img id="carousel_image_{{ image.order }}_original" class="original" src="{{ image.image.url }}">
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <h1>{{ sample.title }}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        {% include "pathology/carousel.html" %}
+        <div class="col-lg-6 col-xs-12">
+            <p>{{ sample.description | safe }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'sample_edit_view' sample.id %}" class="btn btn-info">Редактировать</a>
+                <a href="{% url 'sample_delete_view' sample.id %}" class="btn btn-danger">Удалить</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

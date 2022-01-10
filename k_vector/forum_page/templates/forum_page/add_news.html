@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Место для будущего форума</title>
+</head>
+<body>
+    <h1>Место для добавления новости</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.news_title }}<br>
+        {{ form.news_information }}<br>
+        {{ form.news_date }}<br>
+        {{ form.news_image }}
+        <span>{{ error }}</span>
+        <button type="submit" name="submit_button" value="main_button">Отправить</button>
+    </form>
+</body>
+</html>

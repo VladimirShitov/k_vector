@@ -1,0 +1,38 @@
+{% extends "pathology/base.html" %}
+
+{% load static %}
+
+{% block title %}Редактирование препарата{% endblock %}
+
+{% block extra_head_content %}
+    {{ form.media }}
+{% endblock %}
+
+{% block scripts %}
+    <script defer src="{% static 'pathology/js/carousel.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        {% include "pathology/carousel.html" %}
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form action="{% url "sample_edit_view" sample_id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="field_wrapper">
+                        {% if field.errors %}
+                            <div class="errors_wrapper alert alert-danger">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+
+                        {{ field.label_tag }} {{ field }}
+                    </div>
+                {% endfor %}
+            <input type="submit" value="Сохранить">
+            </form>
+        </div>
+    </div>
+{% endblock %}
