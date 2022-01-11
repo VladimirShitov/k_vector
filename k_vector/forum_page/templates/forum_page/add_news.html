@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Место для будущего форума</title>
-</head>
-<body>
+{% extends "pathology/base.html" %}"
+
+{% block title %}Добавить новость{% endblock %}
+
+{% block content %}
     <h1>Место для добавления новости</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -15,5 +13,4 @@
         <span>{{ error }}</span>
         <button type="submit" name="submit_button" value="main_button">Отправить</button>
     </form>
-</body>
-</html>
+{% endblock %}
