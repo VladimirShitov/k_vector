@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import News
 from .forms import NewsForm
 
@@ -6,12 +7,13 @@ from .forms import NewsForm
 def news_page(request):
     news = News.objects.all()
 
-    data={
+    data = {
         'news': news
     }
     return render(request, 'forum_page/news_page.html', data)
 
 
+@login_required
 def add_news(request):
     error = ''
     if request.method == 'POST':
