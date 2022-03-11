@@ -2,15 +2,30 @@
 
 {% block title %}Добавить новость{% endblock %}
 
+{% block extra_head_content %}
+    {{ form.media }}
+{% endblock %}
+
 {% block content %}
-    <h1>Место для добавления новости</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.news_title }}<br>
-        {{ form.news_information }}<br>
-        {{ form.news_date }}<br>
-        {{ form.news_image }}
-        <span>{{ error }}</span>
-        <button type="submit" name="submit_button" value="main_button">Отправить</button>
-    </form>
+    <div class="row">
+        <div class="col-12">
+            <form action="{% url "add_news" %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="row field_wrapper">
+                        <div class="col-12">
+                            {% if field.errors %}
+                                <div class="errors_wrapper alert alert-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+
+                            {{ field.label_tag }} {{ field }}
+                        </div>
+                    </div>
+                {% endfor %}
+            <input type="submit" value="Сохранить" class="btn btn-success">
+            </form>
+        </div>
+    </div>
 {% endblock %}

@@ -7,12 +7,14 @@
     <br>
     {%for new in news %}
         <h3>{{new.news_title}}</h3>
-        <h5>{{new.news_information}}</h5><br>
+        <h5>{{new.news_information | safe}}</h5><br>
     {%if new.news_image%}
         <img src="../media/{{new.news_image}}" style="max-height:300px">
     {%endif%}
     {% endfor %}
-    <form action="/news/add_news">
-        <button type="submit">Добавить новость</button>
-    </form>
+    {% if user.is_authenticated %}
+        <form action="/news/add_news">
+            <button type="submit">Добавить новость</button>
+        </form>
+    {% endif %}
 {% endblock %}

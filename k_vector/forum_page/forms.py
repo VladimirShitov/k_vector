@@ -1,5 +1,6 @@
 from .models import News
-from django.forms import ModelForm, TextInput, Textarea, DateInput
+from django.forms import ModelForm,TextInput, DateInput
+from tinymce.widgets import TinyMCE
 
 
 class NewsForm (ModelForm):
@@ -12,12 +13,14 @@ class NewsForm (ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Название статьи'
             }),
-            'news_information': Textarea(attrs={
+            'news_information': TinyMCE(attrs={
                 'class': 'form-control',
-                'placeholder': 'Текст статьи'
+                'placeholder': 'Текст статьи',
+
             }),
             'news_date': DateInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'дата публикации'
             })
         }
+
