@@ -3,10 +3,10 @@ from tinymce.models import HTMLField
 
 
 class News(models.Model):
-    news_title = models.CharField(max_length=140)
-    news_information = HTMLField(blank=True)
-    news_date = models.DateTimeField()
-    news_image = models.ImageField(upload_to='images/', blank=True)
+    title = models.CharField(max_length=140)
+    information = HTMLField(blank=True)
+    date = models.DateTimeField()
+    image = models.ImageField(upload_to='images/', blank=True)
 
     def __str__(self):
-        return self.news_title
+        return self.title

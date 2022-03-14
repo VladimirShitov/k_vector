@@ -6,10 +6,10 @@
     <h1>Новости на сайте</h1>
     <br>
     {%for new in news %}
-        <h3>{{new.news_title}}</h3>
-        <h5>{{new.news_information | safe}}</h5><br>
-    {%if new.news_image%}
-        <img src="../media/{{new.news_image}}" style="max-height:300px">
+        <h3>{{new.title}}</h3>
+        <h5>{{new.information | safe}}</h5><br>
+    {%if new.image%}
+        <img src="../media/{{new.image}}" style="max-height:300px">
     {%endif%}
     {% endfor %}
     {% if user.is_authenticated %}
