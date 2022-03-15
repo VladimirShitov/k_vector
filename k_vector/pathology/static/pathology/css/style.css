@@ -103,6 +103,20 @@ img.wrong-rotation {
     display: block;
 }
 
+.hidden{
+    display: none !important;
+}
+
+.my-carousel img {
+    width: 100%;
+    image-orientation: from-image;
+}
+
+#hidden-block{
+    position: absolute;
+    z-index: 10;
+}
+
 .zoom_container {
     border-radius: 50%;
     width: 200px;
@@ -204,4 +218,22 @@ a.sidebar-toggle:hover {
     width: 200px;
     clip-path: circle(at center);
     display: block;
+}
+
+.img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    z-index: 99;
+    /*Установите размер стекла лупы:*/
+    width: 250px;
+    height: 250px;
+}
+
+img.centered {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    padding 15px;
 }
