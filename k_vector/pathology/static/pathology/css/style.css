@@ -232,8 +232,8 @@ a.sidebar-toggle:hover {
 }
 
 img.centered {
-    width: 80%;
+    width: 95%;
     margin: 0 auto;
     display: block;
-    padding 15px;
+    padding: 15px;
 }
