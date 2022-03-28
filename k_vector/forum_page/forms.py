@@ -1,5 +1,5 @@
 from .models import News
-from django.forms import ModelForm,TextInput, DateInput
+from django.forms import ModelForm, TextInput, DateInput
 from tinymce.widgets import TinyMCE
 
 
@@ -20,7 +20,7 @@ class NewsForm (ModelForm):
             }),
             'date': DateInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'дата публикации'
+                'placeholder': 'дата публикации: ГГГГ-ММ-ДД'
             })
         }
 
