@@ -8,6 +8,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+k_vector/k_vector/secrets.py
 .Python
 env/
 build/

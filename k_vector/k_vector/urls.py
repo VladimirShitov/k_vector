@@ -26,6 +26,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("pathology/", include("pathology.urls")),
     path("tinymce/", include("tinymce.urls")),
+    path('news/', include('forum_page.urls')),
     path("authentication/", include("authentication.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
